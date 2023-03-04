@@ -1,7 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+:root {
+    --main-color: #7E909A;
+    --secondary-color : #FFAA33;
+    --font-color : #fff;
+}
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: 'Roboto', sans-serif;
 }
+.container {
+    max-width: 1068px;
+    width: 100%;
+    margin: auto;
+}
+/* Header */
+header {
+    background-color: var(--main-color);
+    margin-bottom: 2rem;
+}
+.nav {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+}
+#icon-nav {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+/* Header */
+/* section */
+.shop-content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin: 2rem 0;
+}
+.shop-card {
+    position: relative;
+    width: 330px;
+    margin-bottom: 1rem;
+}
+.shop-card:hover {
+    padding: 0.5rem;
+    border: 1px solid #566573;
+    transition: 0.3s;
+}
+.shop-content img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.shop-content h3 {
+    display: inline;
+    padding-left: 0.5rem;
+    text-transform: uppercase;
+}
+.shop-content .shop-card span {
+    position: absolute;
+    right: 0;
+    padding-right: 0.5rem;
+    font-weight: 500;
+}
+.shop-content button {
+    width: 100%;
+    margin: 0.25rem 0;
+    background: var(--secondary-color);
+    border: none;
+    color: var(--font-color);
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.shop-content button:focus,
+.shop-content button:hover {
+    filter: brightness(95%);
+}
+/* section */
+
+
