@@ -15,7 +15,8 @@ body {
 .container {
     max-width: 1068px;
     width: 100%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 /* Header */
 header {
@@ -27,6 +28,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.5rem;
 }
 .logo {
     color: var(--secondary-color);
@@ -41,12 +43,13 @@ header {
 /* section */
 .shop-content {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     margin: 2rem 0;
+    gap: 1rem;
 }
 .shop-card {
     position: relative;
-    width: 330px;
+    width: 350px;
     margin-bottom: 1rem;
 }
 .shop-card:hover {
@@ -72,17 +75,51 @@ header {
 .shop-content button {
     width: 100%;
     margin: 0.25rem 0;
-    background: var(--secondary-color);
     border: none;
     color: var(--font-color);
     height: 30px;
     border-radius: 5px;
     cursor: pointer;
 }
+.shop-content #btn-1 {
+    background: #0091d5;
+}
+.shop-content #btn-2 {
+    background: var(--secondary-color);
+}
 .shop-content button:focus,
 .shop-content button:hover {
     filter: brightness(95%);
 }
 /* section */
-
+/* Media Query */
+@media (max-width: 1080px) {
+    .nav {
+        padding: 15px;
+    }
+    section {
+        padding: 3rem 0 2rem;
+    }
+    .container {
+        margin: 0 auto;
+        width: 90%;
+    }
+    .shop {
+        margin-top: 2rem !important;
+    }
+}
+@media (max-width: 400px) {
+    .nav {
+        padding: 11px;
+    }
+    .logo {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 360px) {
+    .shop {
+        margin-top: 1rem !important;
+    }
+}
+/* Media Query */
 
