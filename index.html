@@ -14,19 +14,19 @@
     <header>
         <div class="nav container">
             <span class="logo">Online Shopping</span>
-            <i class="fa-solid fa-cart-shopping" id="icon-nav"><span class="cart-number">0</span></i>
+            <i class="fa-solid fa-cart-shopping" id="icon-nav"><span id="cart-number" class="cart-number">0</span></i>
         </div>
     </header>
     <!-- header -->
     <!-- section -->
     <section class="shop container">
-            <div class="shop-content">
-                <div class="shop-card">
+            <div class="shop-content" id="products-container">
+                <!-- <div class="shop-card">
                     <img src="/img/product1.jpg" alt="">
                     <h3>Adidas Shirt</h3>
                     <span id="price">$45</span>
-                    <button id="btn-1">Quick View</button>
-                    <button id="btn-2">Add to Cart</button>
+                    <button class="button width-100 bg-primary">Quick View</button>
+                    <button class="button width-100 bg-secondary">Add to Cart</button>
                 </div>
                 <div class="shop-card">
                     <img src="/img/product2.jpg" alt="">
@@ -62,9 +62,28 @@
                     <span id="price">$80</span>
                     <button id="btn-1">Quick View</button>
                     <button id="btn-2">Add to Cart</button>
-                </div>
+                </div> -->
     </section>
     <!-- section -->
+    <!-- popup -->
+    <div id="product-popup" class="popup d-none">
+        <div class="popup-title">
+            <h2>Product</h2>
+            <span class="button" onclick="closePopup()">X</span>
+        </div>
+        <div class="popup-body">
+            <img src="/img/product1.jpg" alt="">
+            <h3>Adidas Shirt</h3>
+            <span>$45</span>
+        </div>
+        <div class="popup-footer">
+            <button class="button bg-light" onclick="closePopup()">Close</button>
+            <button class="button bg-secondary">Add to Cart</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay d-none" onclick="closePopup()"></div>
+
+
     <script src="/js/main.js"></script>
 </body>
 </html>
