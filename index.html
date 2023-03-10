@@ -72,13 +72,38 @@
             <span class="button" onclick="closePopup()">X</span>
         </div>
         <div class="popup-body">
-            <img src="/img/product1.jpg" alt="">
-            <h3>Adidas Shirt</h3>
-            <span>$45</span>
+            <img src="/img/product1.jpg" alt="" id="image">
+            <h3 id="pop-title">Adidas Shirt</h3>
+            <span id="pop-price">$45</span>
         </div>
+        <!-- <div class="popup-body">
+            <img src="/img/product2.jpg" alt="">
+            <h3>Metal Bottle</h3>
+            <span>$10</span>
+        </div>
+        <div class="popup-body">
+            <img src="/img/product3.jpg" alt="">
+            <h3>Sunglasses</h3>
+            <span>$50</span>
+        </div>
+        <div class="popup-body">
+            <img src="/img/product4.jpg" alt="">
+            <h3>Black Hat</h3>
+            <span>$8</span>
+        </div>
+        <div class="popup-body">
+            <img src="/img/product5.jpg" alt="">
+            <h3>BackPack</h3>
+            <span>$40</span>
+        </div>
+        <div class="popup-body">
+            <img src="/img/product6.jpg" alt="">
+            <h3>Athletic shoe</h3>
+            <span>$80</span>
+        </div>  -->
         <div class="popup-footer">
             <button class="button bg-light" onclick="closePopup()">Close</button>
-            <button class="button bg-secondary">Add to Cart</button>
+            <button class="button bg-secondary" onclick="addToCart(event)">Add to Cart</button>
         </div>
     </div>
     <div id="overlay" class="overlay d-none" onclick="closePopup()"></div>
