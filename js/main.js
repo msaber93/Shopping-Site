@@ -1,6 +1,6 @@
 // Quick view for each product
 
-const cart = [];
+var cart = [];
 let products = [
   {
     id: "1",
@@ -46,7 +46,6 @@ let products = [
   },
 ];
 
-
 // loop to create products
 // loop
 // html factory function
@@ -63,16 +62,14 @@ function createProducts() {
             <h3>${product.name}</h3>
             <span id="price">${product.price}</span>
             <button class="button width-100 bg-primary" data-prod-id="${product.id}" onclick="viewProduct(event)">Quick View</button>
-            <button class="button width-100 ${addToCartClass}"  data-prod-id="${product.id}" onclick="addToCart(event)">Add to Cart</button>
+            <button class="button width-100 ${addToCartClass}"  data-prod-id="${product.id}"  onclick="toggleCart(event)">Add to Cart</button>
         </div>
         `;
     productsContainer.innerHTML += productHtml;
   });
-};
+}
 const popup = document.getElementById("product-popup");
 const overlay = document.getElementById("overlay");
-
-
 
 function viewProduct(event) {
   const product = products.find(
@@ -93,9 +90,9 @@ function viewProduct(event) {
       <button class="button bg-light" onclick="closePopup()">Close</button>
       <button class="button bg-secondary">Add to Cart</button>
     </div>
-    `
+    `;
   }
- 
+
   popup.classList.remove("d-none");
   overlay.classList.remove("d-none");
 }
@@ -105,19 +102,16 @@ function closePopup() {
   overlay.classList.add("d-none");
 }
 
-const btnCart = document.getElementById("btn-add");
-
-function addToCart(event) {
+function toggleCart(event) {
   const product = products.find(
     (product) => product.id === event.target.dataset.prodId
   );
-
+  console.log(event);
   products = products.map((product) => {
     if (product.id === event.target.dataset.prodId) {
-      product.addedToCart = true;
+      product.addedToCart = !product.addedToCart;
     }
     return product;
-
   });
 
   cart.push(product);
@@ -126,8 +120,10 @@ function addToCart(event) {
 }
 
 const cartNumber = document.getElementById("cart-number");
-function updateCart() {
-  cartNumber.innerHTML = +cartNumber.innerText + 1;
+
+function updateCart(element) {
+  element = cartNumber.innerText;
+  cartNumber.innerHTML = +element + 1;
 }
 
 createProducts();
