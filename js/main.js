@@ -62,7 +62,7 @@ function createProducts() {
             <h3>${product.name}</h3>
             <span id="price">${product.price}</span>
             <button class="button width-100 bg-primary" data-prod-id="${product.id}" onclick="viewProduct(event)">Quick View</button>
-            <button class="button width-100 ${addToCartClass}"  data-prod-id="${product.id}"  onclick="toggleCart(event)">Add to Cart</button>
+            <button class="button width-100 ${addToCartClass}" id="cart-button"  data-prod-id="${product.id}"  onclick="toggleCart(event)">Add to Cart</button>
         </div>
         `;
     productsContainer.innerHTML += productHtml;
@@ -101,8 +101,13 @@ function closePopup() {
   popup.classList.add("d-none");
   overlay.classList.add("d-none");
 }
+const cartNumber = document.getElementById("cart-number");
+const cartButton = document.getElementById("cart-button");
+let cartItemCount = 0;
+
 
 function toggleCart(event) {
+
   const product = products.find(
     (product) => product.id === event.target.dataset.prodId
   );
@@ -114,16 +119,15 @@ function toggleCart(event) {
     return product;
   });
 
-  cart.push(product);
-  updateCart();
+  if (product.addedToCart) {
+    cartItemCount++;
+  } else {
+    cartItemCount--;
+  }
+
+  cartNumber.textContent = cartItemCount;
+
   createProducts();
-}
-
-const cartNumber = document.getElementById("cart-number");
-
-function updateCart(element) {
-  element = cartNumber.innerText;
-  cartNumber.innerHTML = +element + 1;
 }
 
 createProducts();
