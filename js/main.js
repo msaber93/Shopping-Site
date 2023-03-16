@@ -56,13 +56,14 @@ function createProducts() {
   productsContainer.innerHTML = "";
   products.forEach((product) => {
     const addToCartClass = product.addedToCart ? "bg-success" : "bg-secondary";
+    const textCart = product.addedToCart ? "Remove From Cart" : "Add to Cart";
     const productHtml = `
         <div class="shop-card">
             <img src="/img/${product.img}.jpg" alt="">
             <h3>${product.name}</h3>
             <span id="price">${product.price}</span>
             <button class="button width-100 bg-primary" data-prod-id="${product.id}" onclick="viewProduct(event)">Quick View</button>
-            <button class="button width-100 ${addToCartClass}" id="cart-button"  data-prod-id="${product.id}"  onclick="toggleCart(event)">Add to Cart</button>
+            <button class="button width-100 ${addToCartClass}" id="cart-button"  data-prod-id="${product.id}"  onclick="toggleCart(event)">${textCart}</button>
         </div>
         `;
     productsContainer.innerHTML += productHtml;
